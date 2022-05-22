@@ -1,0 +1,63 @@
+.task {
+  min-height: 52px;
+  padding: 0 0 0 25px;
+  border-bottom: 1px solid #DADADA;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 100px;
+  color: #635350;
+  margin-bottom: 20px;
+}
+
+.text {
+  width: 100%;
+  margin-right: 20px;
+  font-size: 15px;
+}
+
+.button {
+  padding: 8px;
+  border: none;
+  justify-self: end;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.buttonContent {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  background-color: #635350;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 10px;
+  line-height: 12px;
+  margin-right: 0px;
+  transition: all .2s ease;
+
+  color: #FFFFFF;
+}
+.buttonText {
+  transform:translateX(50px);
+  transition: transform .2s ease;
+}
+.button svg {
+  flex-shrink: 0;
+  transform: translateX(16px);
+}
+
+
+.button:hover .buttonContent {
+  background-color: #B83519;
+  width: 62px;
+  height: 35px;
+  margin-right: -15px;
+}
+.button:hover .buttonText {
+  transform: translateX(-7px);
+}
+
+.button:hover svg {
+  transform: translateX(60px);
+}

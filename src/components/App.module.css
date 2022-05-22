@@ -1,0 +1,29 @@
+.wrapper {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  background: linear-gradient(180deg, #4D7AEE 0%, #25E1B4 100%);
+}
+
+.app {
+  width: max(40%, 300px);
+  min-height: 50%;
+  padding-top: 100px; 
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.todo {
+  min-height: calc(100vh - 195px);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: white;
+  overflow: hidden;
+}
