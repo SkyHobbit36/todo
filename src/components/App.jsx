@@ -1,9 +1,9 @@
 import style from './App.module.css'
 import logo from '../assets/logo.png'
 import Add from './Add/Add';
-import TaskList from './Add/TaskList/TaskList';
+import TaskList from './TaskList/TaskList';
 
-const App = () => {
+const App = (props) => {
   return (
     <div className={style.wrapper}>
       <div className={style.app}>
@@ -11,8 +11,15 @@ const App = () => {
           <img src={logo} alt="" />
         </div>
         <div className={style.todo}>
-          <Add />
-          <TaskList />
+          <Add 
+            addTask={props.addTask}
+            message={props.state.addTaskMessage} 
+            updateAddMessage={props.updateAddMessage}
+          />
+          <TaskList 
+            state={props.state}
+            deleteTask={props.deleteTask}
+          />
         </div>
       </div>
     </div>
