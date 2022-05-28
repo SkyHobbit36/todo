@@ -2,9 +2,11 @@ import {createRef} from 'react'
 import style from './Task.module.css'
 
 const Task = (props) => {
+  console.log(props.complited);
+  console.log(props.id);
+  const isChecked = props.complited
   const refTask = createRef()
   const del = (event) => {
-    console.log(props.id);
     refTask.current.classList.add(style.hide)
     setTimeout(() => {
       refTask.current.classList.remove(style.hide)
@@ -13,6 +15,7 @@ const Task = (props) => {
   }
   return (
     <div className={style.task} ref={refTask}>
+      <input type="checkbox" checked={isChecked} /> 
       <p className={style.text}>{props.value}</p>
       <button className={style.button} onClick={del}>
         <div className={style.buttonContent}>

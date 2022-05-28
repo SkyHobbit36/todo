@@ -1,17 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from './Add.module.css'
 
 const Add = (props) => {
   const refInput = React.createRef()
   const refAlert = React.createRef()
+  const [addMessage, setAddMessage] = useState()
+
+  const updateMessage = (event) => { 
+    setAddMessage(event.target.value)
+    
+    // props.updateAddMessage(refInput.current.value)
+  }
 
   const submit = (event) => {
     event.preventDefault()
 
+  
     if(refInput.current.value !== '') {
       props.addTask(refInput.current.value)
       refInput.current.value = ''
-      props.updateAddMessage('')
+      setAddMessage('')
     } else {
       refAlert.current.classList.remove(style.hide)
       refInput.current.classList.add(style.hide)
@@ -22,16 +30,14 @@ const Add = (props) => {
     refInput.current.classList.remove(style.hide)
     refInput.current.focus()
   }
-  const updateMessage = () => {
-    props.updateAddMessage(refInput.current.value)
-  }
+  
   return (
     <form className={style.add} onSubmit={submit}>
       <input 
         className={style.input} 
         type="text" 
         placeholder="New task" 
-        value={props.message} 
+        value={addMessage || ''} 
         onChange={updateMessage}
         ref={refInput}
       />

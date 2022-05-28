@@ -14,7 +14,6 @@ const App = (props) => {
           <Add 
             addTask={props.addTask}
             message={props.state.addTaskMessage} 
-            updateAddMessage={props.updateAddMessage}
           />
           <TaskList 
             state={props.state}

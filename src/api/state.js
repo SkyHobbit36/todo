@@ -1,19 +1,13 @@
 import data from './data.json'
 
 let state = {
-  data,
-  addTaskMessage: ''
+  data
 }
 
 let rerenderTree = () => { }
 
 const addTask = (value) => {
   state.data.push({ value: value })
-  rerenderTree()
-}
-
-const updateAddMessage = (value) => {
-  state.addTaskMessage = value
   rerenderTree()
 }
 
@@ -27,4 +21,4 @@ const subscribe = (observer) => {
   rerenderTree = observer
 }
 
-export { state, addTask, subscribe, updateAddMessage, deleteTask }
+export { state, addTask, subscribe, deleteTask }
