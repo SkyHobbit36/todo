@@ -1,23 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
 import App from './components/App';
 import './index.css'
-import { addTask, state, subscribe, deleteTask } from './api/state';
+import store from './store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const rerenderTree = () => {
-  root.render(
-    <React.StrictMode>
-      <App 
-        state={state} 
-        addTask={addTask} 
-        deleteTask={deleteTask} 
-      />
-    </React.StrictMode>
-  );
-}
-
-rerenderTree()
-
-subscribe(rerenderTree)
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+);

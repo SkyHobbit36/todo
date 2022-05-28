@@ -1,3 +1,11 @@
 .list {
   padding: 30px;
 }
+
+.heading {
+  text-align: center;
+  border-bottom: 1px solid #539d47;
+  padding: 17px 0 11px;
+  color: #539d47;
+  text-transform: uppercase;
+}

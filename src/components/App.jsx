@@ -3,7 +3,7 @@ import logo from '../assets/logo.png'
 import Add from './Add/Add';
 import TaskList from './TaskList/TaskList';
 
-const App = (props) => {
+const App = () => {
   return (
     <div className={style.wrapper}>
       <div className={style.app}>
@@ -11,14 +11,8 @@ const App = (props) => {
           <img src={logo} alt="" />
         </div>
         <div className={style.todo}>
-          <Add 
-            addTask={props.addTask}
-            message={props.state.addTaskMessage} 
-          />
-          <TaskList 
-            state={props.state}
-            deleteTask={props.deleteTask}
-          />
+          <Add />
+          <TaskList />
         </div>
       </div>
     </div>

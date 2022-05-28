@@ -22,14 +22,15 @@
   background: #539d47;
   border-radius: 0px 5px 5px 0px;
   text-transform:uppercase;
-  color: white;
+  color: #cfe457;
   flex-shrink: 0;
   cursor: pointer;
   transition:  background-color .2s ease;
 }
 
 .button:hover {
-  background-color: #afbc35;
+  background-color: #cfe457;
+  color: #35ac59;
 }
 
 .alert {

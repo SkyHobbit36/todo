@@ -1,13 +1,72 @@
 .task {
   min-height: 52px;
-  padding: 0 0 0 25px;
   border-bottom: 1px solid #DADADA;
   display: grid;
   align-items: center;
-  grid-template-columns: 30px 1fr 100px;
+  grid-template-columns: 60px 1fr 100px;
   color: #635350;
   margin-bottom: 20px;
 }
+
+
+.checkbox {
+  padding: 8px;
+  justify-self: self-start;
+  cursor: pointer;
+}
+
+.checkbox .checkboxContent{
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  background-color: #868686;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: all .2s ease;
+  margin-left: 0;
+  overflow: hidden;
+}
+
+.checkboxContent svg {
+  transition: all .2s ease;
+  fill: white;
+  opacity: 0;
+}
+input:checked + label svg {
+  opacity: 1;
+}
+
+input:checked + label .checkboxContent {
+  background-color: #539d47;
+}
+input:not(:checked) + label .checkboxContent {
+  background-color: #868686;
+}
+
+
+
+.checkbox:hover .checkboxContent {
+  width: 35px;
+  height: 35px;
+  margin-left: -5px;
+  border-radius: 10px;
+  background-color: #539d47;
+}
+input:checked + .checkbox:hover .checkboxContent {
+  background-color: #868686;
+}
+.checkbox:hover svg {
+  opacity: 1;
+  transform: scale(1.5);
+}
+input:checked + .checkbox:hover svg {
+  fill: #adadad;
+}
+
+
+
+
 
 .text {
   width: 100%;
@@ -15,7 +74,7 @@
   font-size: 15px;
 }
 
-.button {
+.delete {
   padding: 8px;
   border: none;
   justify-self: end;
@@ -23,7 +82,7 @@
   background-color: transparent;
 }
 
-.buttonContent {
+.deleteContent {
   width: 22px;
   height: 22px;
   border-radius: 5px;
@@ -39,28 +98,28 @@
 
   color: #FFFFFF;
 }
-.buttonText {
+.deleteText {
   transform:translateX(50px);
   transition: transform .2s ease;
 }
-.button svg {
+.delete svg {
   flex-shrink: 0;
   transform: translateX(16px);
 }
 
 
-.button:hover .buttonContent {
+.delete:hover .deleteContent {
   background-color: #df7934;
   width: 62px;
   height: 35px;
   margin-right: -15px;
   border-radius: 10px;
 }
-.button:hover .buttonText {
+.delete:hover .deleteText {
   transform: translateX(-7px);
 }
 
-.button:hover svg {
+.delete:hover svg {
   transform: translateX(60px);
 }
 

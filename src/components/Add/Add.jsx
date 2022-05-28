@@ -1,25 +1,36 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addTask } from '../../store/slices/todoSlice'
 import style from './Add.module.css'
 
-const Add = (props) => {
+const Add = () => {
+  const [addMessage, setAddMessage] = useState()
+  const dispatch = useDispatch()
+
   const refInput = React.createRef()
   const refAlert = React.createRef()
-  const [addMessage, setAddMessage] = useState()
+
+  // const savedAddMessage = localStorage.getItem('addMessage') || ''
+  useEffect(()=> {
+    setAddMessage(localStorage.getItem('addMessage') || '')
+  },[])
 
   const updateMessage = (event) => { 
-    setAddMessage(event.target.value)
-    
-    // props.updateAddMessage(refInput.current.value)
+    const value = event.target.value
+    setAddMessage(value)
+    localStorage.setItem('addMessage', value)
   }
 
   const submit = (event) => {
     event.preventDefault()
-
   
     if(refInput.current.value !== '') {
-      props.addTask(refInput.current.value)
+      dispatch(addTask({ 
+        value: refInput.current.value
+      }))
       refInput.current.value = ''
       setAddMessage('')
+      localStorage.setItem('addMessage', '')
     } else {
       refAlert.current.classList.remove(style.hide)
       refInput.current.classList.add(style.hide)
