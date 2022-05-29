@@ -23,6 +23,7 @@ const TaskList = () => {
 
   return (
     <div className={style.list}>
+      <h2 className={`${style.heading} ${style.heading_task}`}>Tasks</h2>
       {todosNotComlited.reverse()}
       <h2 className={style.heading}>Complited</h2>
       {todosComlited.reverse()}

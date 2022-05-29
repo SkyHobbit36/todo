@@ -15,7 +15,7 @@ const Task = (props) => {
       dispatch(deleteTask({
         id: props.id
       }))
-    }, 250);
+    }, 300);
   }
 
   const toggle = () =>{

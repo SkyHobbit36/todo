@@ -1,11 +1,18 @@
 .list {
   padding: 30px;
+  padding-top: 0px;
 }
 
 .heading {
+  font-size: 1.4rem;
   text-align: center;
   border-bottom: 1px solid #539d47;
   padding: 17px 0 11px;
   color: #539d47;
   text-transform: uppercase;
+}
+
+.heading_task{
+  color: #9fad31;
+  border-bottom: 1px solid #9fad31;
 }

@@ -1,9 +1,10 @@
 .add {
-  background-color: #5cd882;
+  background-color: #99ed82;
   padding: 30px;
   display: flex;
-  position: sticky;
-  top:0;  
+  position: relative;
+  z-index: 2;
+  transition: transform .5 ease;
 }
 .input {
   width: 100%;
@@ -47,4 +48,11 @@
 }
 .hide {
   display: none;
+}
+
+@media (max-width: 440px) {
+  .add {
+    padding: 30px 20px;
+
+  }
 }

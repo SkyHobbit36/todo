@@ -3,14 +3,15 @@ import { useDispatch } from 'react-redux'
 import { addTask } from '../../store/slices/todoSlice'
 import style from './Add.module.css'
 
-const Add = () => {
+const Add = (props) => {
   const [addMessage, setAddMessage] = useState()
+  const [posotionTop, setPosotionTop] = useState(0)
   const dispatch = useDispatch()
 
-  const refInput = React.createRef()
-  const refAlert = React.createRef()
+  const addRef = React.createRef()
+  const inputRef = React.createRef()
+  const alertRef = React.createRef()
 
-  // const savedAddMessage = localStorage.getItem('addMessage') || ''
   useEffect(()=> {
     setAddMessage(localStorage.getItem('addMessage') || '')
   },[])
@@ -21,38 +22,57 @@ const Add = () => {
     localStorage.setItem('addMessage', value)
   }
 
+  const hideAlert = () => {
+    alertRef.current.classList.add(style.hide)
+    inputRef.current.classList.remove(style.hide)
+    inputRef.current.focus()
+  }
+
   const submit = (event) => {
     event.preventDefault()
   
-    if(refInput.current.value !== '') {
+    if(inputRef.current.value !== '') {
       dispatch(addTask({ 
-        value: refInput.current.value
+        value: inputRef.current.value
       }))
-      refInput.current.value = ''
+      
+      inputRef.current.value = ''
       setAddMessage('')
       localStorage.setItem('addMessage', '')
     } else {
-      refAlert.current.classList.remove(style.hide)
-      refInput.current.classList.add(style.hide)
+      alertRef.current.classList.remove(style.hide)
+      inputRef.current.classList.add(style.hide)
     }
-  }
-  const hideAlert = () => {
-    refAlert.current.classList.add(style.hide)
-    refInput.current.classList.remove(style.hide)
-    refInput.current.focus()
+
+    inputRef.current.focus()
   }
   
+  window.addEventListener('scroll',()=> {
+    // const contHeight = props.appRef.current.offsetHeight
+    if (window.pageYOffset >= props.appRef.current.offsetTop) {
+      setPosotionTop(window.pageYOffset - props.appRef.current.offsetTop)
+      // addRef.current.style.transform = `translateY(${window.pageYOffset - props.appRef.current.offsetTop})`
+    } else {
+      setPosotionTop(0)
+    }
+  })
+  
   return (
-    <form className={style.add} onSubmit={submit}>
+    <form className={style.add} 
+        onSubmit={submit} 
+        ref={addRef} 
+        style={{
+          transform: `translateY(${posotionTop}px)`
+        }}>
       <input 
         className={style.input} 
         type="text" 
         placeholder="New task" 
         value={addMessage || ''} 
         onChange={updateMessage}
-        ref={refInput}
+        ref={inputRef}
       />
-      <div className={`${style.alert} ${style.hide}`} ref={refAlert} onClick={hideAlert}>Please, enter some text.</div>
+      <div className={`${style.alert} ${style.hide}`} ref={alertRef} onClick={hideAlert}>Please, enter some text.</div>
       <button className={style.button} type='submit'>Add</button>
     </form>
   )

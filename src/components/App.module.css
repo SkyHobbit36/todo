@@ -1,16 +1,18 @@
 .wrapper {
-  min-height: 100vh;
+  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: auto;
-  background: linear-gradient(180deg, #efde3d 0%, #3bfcce 100%);
+  background: linear-gradient(180deg, #efde3d 0%, #3bfcce 80%);
+  position: relative;
 }
 
 .app {
-  width: max(40%, 300px);
+  width: max(40%, 460px);
   min-height: 50%;
   padding-top: 100px; 
+  margin: 0 20px;
 }
 
 .logo {
@@ -25,4 +27,61 @@
   border-top-right-radius: 5px;
   background-color: white;
   overflow: hidden;
+  box-shadow: 0px 0px 10px 0px #74c977;
+  z-index: 1;
+  position: relative;
+}
+
+
+/* waves */
+.ocean {
+  height: 15vw;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  overflow-x: hidden;
+}
+
+.wave {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M800 56.9c-155.5 0-204.9-50-405.5-49.9-200 0-250 49.9-394.5 49.9v31.8h800v-.2-31.6z' fill='%23009F7C'/%3E%3C/svg%3E");
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  animation: wave 20s -3s linear infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.5;
+}
+
+.wave:nth-of-type(2) {
+  bottom: 0;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.5;
+}
+
+.wave:nth-of-type(3) {
+  bottom: 0;
+  animation: wave 20s -1s linear infinite;
+  opacity: 0.5;
+}
+.wave:nth-of-type(4) {
+  bottom: 0;
+  animation: wave 20s -1s linear reverse infinite;
+  opacity: 0.3;
+}
+
+@keyframes wave {
+    0% {transform: translateX(0);}
+    25% {transform: translateX(-25%);}
+    50% {transform: translateX(-50%);}
+    75% {transform: translateX(-25%);}
+    1000% {transform: translateX(0);}
+}
+
+@media (max-width: 550px) {
+  .wave {
+    display: none;
+  }
 }
