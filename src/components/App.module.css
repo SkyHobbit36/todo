@@ -9,10 +9,11 @@
 }
 
 .app {
-  width: max(40%, 460px);
+  width: 550px;
   min-height: 50%;
   padding-top: 100px; 
   margin: 0 20px;
+  position: relative;
 }
 
 .logo {
@@ -81,6 +82,9 @@
 }
 
 @media (max-width: 550px) {
+  .app {
+    width: 100%;
+  }
   .wave {
     display: none;
   }

@@ -2,9 +2,15 @@
   background-color: #99ed82;
   padding: 30px;
   display: flex;
-  position: relative;
+  position: absolute;
   z-index: 2;
-  transition: transform .5 ease;
+  width: 550px;
+  box-sizing: border-box;  
+  top: 0;
+}
+.add.fixed {
+  position: fixed;
+
 }
 .input {
   width: 100%;
@@ -50,9 +56,12 @@
   display: none;
 }
 
-@media (max-width: 440px) {
+@media (max-width: 610px) {
   .add {
     padding: 30px 20px;
-
+    width: 100%;
+  }
+  .fixed {
+      width: calc(100% - 40px);
   }
 }

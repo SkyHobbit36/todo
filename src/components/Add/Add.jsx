@@ -5,7 +5,8 @@ import style from './Add.module.css'
 
 const Add = (props) => {
   const [addMessage, setAddMessage] = useState()
-  const [posotionTop, setPosotionTop] = useState(0)
+  const [isFixedPosition, setFixedPosotion] = useState(false)
+
   const dispatch = useDispatch()
 
   const addRef = React.createRef()
@@ -14,6 +15,7 @@ const Add = (props) => {
 
   useEffect(()=> {
     setAddMessage(localStorage.getItem('addMessage') || '')
+
   },[])
 
   const updateMessage = (event) => { 
@@ -47,23 +49,25 @@ const Add = (props) => {
     inputRef.current.focus()
   }
   
-  window.addEventListener('scroll',()=> {
-    // const contHeight = props.appRef.current.offsetHeight
-    if (window.pageYOffset >= props.appRef.current.offsetTop) {
-      setPosotionTop(window.pageYOffset - props.appRef.current.offsetTop)
-      // addRef.current.style.transform = `translateY(${window.pageYOffset - props.appRef.current.offsetTop})`
-    } else {
-      setPosotionTop(0)
-    }
-  })
+  useEffect(()=>{
+
+    window.addEventListener('scroll', () => {
+      // const contHeight = props.appRef.current.offsetHeight
+      if (window.pageYOffset >= props.appRef.current.offsetTop) {
+        setFixedPosotion(true)
+        // addRef.current.style.transform = `translateY(${window.pageYOffset - props.appRef.current.offsetTop})`
+      } else {
+        setFixedPosotion(false)
+        // addRef.current.style.transform = `translateY(0)`
+      }
+    })
+  },[props.appRef])
   
   return (
-    <form className={style.add} 
+    <form className={`${style.add} ${isFixedPosition && style.fixed}`} 
         onSubmit={submit} 
         ref={addRef} 
-        style={{
-          transform: `translateY(${posotionTop}px)`
-        }}>
+        >
       <input 
         className={style.input} 
         type="text" 
