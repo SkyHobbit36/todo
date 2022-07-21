@@ -1,32 +1,48 @@
 import React from 'react'
 import style from './TaskList.module.css'
 import Task from './Task/Task'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { completeAllTasks, deleteComplited, setTodos } from '../../store/slices/todoSlice'
+import { useEffect } from 'react'
 
 const TaskList = () => {
-  const todosNotComplited = []
-  const todosComplited = []
+  const dispatch = useDispatch()
+  const todosNotCompleted = []
+  const todosCompleted = []
 
+  useEffect(() => {
+    dispatch(setTodos())
+  },[])
+  
   useSelector(state => state.todos.todos).forEach((el, i) => {
     const task = <Task
       value={el.value}
-      complited={el.complited}
+      completed={el.completed}
       id={i}
       key={i}
     />
-    if (el.complited) {
-      todosComplited.push(task)
+    if (el.completed) {
+      todosCompleted.push(task)
     } else{
-      todosNotComplited.push(task)
+      todosNotCompleted.push(task)
     }
   })
+
+  const completeAll = () => {
+    dispatch(completeAllTasks())
+  }
+  const deleteAll = () => {
+    dispatch(deleteComplited())
+  }
     
   return (
     <div className={style.list}>
       <h2 className={`${style.heading} ${style.heading_task}`}>Tasks</h2>
-      {todosNotComplited.reverse()}
+      {todosNotCompleted.reverse()}
+      <button onClick={completeAll} className={style.completeAll}>Complete all</button>
       <h2 className={style.heading}>Complited</h2>
-      {todosComplited.reverse()}
+      {todosCompleted.reverse()}
+      <button onClick={deleteAll} className={style.deleteAll}>Delete all</button>
     </div>
   )
 }

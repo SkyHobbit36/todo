@@ -1,30 +1,34 @@
 [
   {
     "value": "Добавить анимацию волн на фоне.",
-    "complited": "true"
+    "completed": "true"
   },
   {
     "value": "Сохранение набранного, но не добавленного текста в локал сторедж",
-    "complited": "true"
+    "completed": "true"
   },
   {
     "value": "Сделать для хэдера sticky position.",
-    "complited": "true"
+    "completed": "true"
   },
   {
     "value": "Добавить функционал. Завершение таски. Помещать завершенные в отдельный список снизу. ",
-    "complited": "true"
+    "completed": "true"
   },
   {
     "value": "Добавить кнопку звершения всех тасков",
-    "complited": "false"
+    "completed": "true"
   },
   {
     "value": "Добавить кнопку удаления всех завершенных тасков",
-    "complited": "false"
+    "completed": "true"
   },
   {
     "value": "Сохранение всех данных в locale storage",
-    "complited": "false"
+    "completed": "true"
+  },
+  {
+    "value": "Редактирование задачи",
+    "completed": "false"
   }
 ]

@@ -31,7 +31,7 @@ const Task = (props) => {
   return (
     <div className={style.task} ref={refTask}>
       
-      <input type="checkbox" id={labelId} checked={props.complited} onChange={toggle} hidden/> 
+      <input type="checkbox" id={labelId} checked={props.completed} onChange={toggle} hidden/> 
       <label className={style.checkbox} htmlFor={labelId}>
         <div className={style.checkboxContent}>
           <svg width="10" height="10" viewBox="0 0 32 32" fill="none" 

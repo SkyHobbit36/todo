@@ -15,7 +15,6 @@ const Add = (props) => {
 
   useEffect(()=> {
     setAddMessage(localStorage.getItem('addMessage') || '')
-
   },[])
 
   const updateMessage = (event) => { 
@@ -62,9 +61,9 @@ const Add = (props) => {
   
   return (
     <form className={`${style.add} ${isFixedPosition && style.fixed}`} 
-        onSubmit={submit} 
-        ref={addRef} 
-        >
+      onSubmit={submit} 
+      ref={addRef} 
+    >
       <input 
         className={style.input} 
         type="text" 

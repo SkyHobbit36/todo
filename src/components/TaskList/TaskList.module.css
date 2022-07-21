@@ -1,6 +1,8 @@
 .list {
   padding: 30px;
   padding-top: 110px;
+  display: flex;
+  flex-direction: column;
 }
 
 .heading {
@@ -15,4 +17,28 @@
 .heading_task{
   color: #9fad31;
   border-bottom: 1px solid #9fad31;
+}
+
+.deleteAll {
+  color: rgb(182, 91, 91);
+  align-self: end;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+.deleteAll:hover {
+  color:rgb(145, 12, 12);
+  text-decoration: underline;
+}
+
+.completeAll {
+  color: #539d47;
+  align-self: end;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+.completeAll:hover {
+  color:rgb(16, 83, 8);
+  text-decoration: underline;
 }
