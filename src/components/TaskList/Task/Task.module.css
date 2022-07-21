@@ -8,9 +8,6 @@
   margin-bottom: 20px;
 }
 
-
-
-
 .checkbox {
   padding: 8px;
   justify-self: self-start;
@@ -45,8 +42,6 @@ input:checked + label .checkboxContent {
 input:not(:checked) + label .checkboxContent {
   background-color: #868686;
 }
-
-
 
 .checkbox:hover .checkboxContent {
   width: 35px;
@@ -106,7 +101,7 @@ input:checked + .checkbox:hover svg {
 }
 .delete svg {
   flex-shrink: 0;
-  transform: translateX(16px);
+  transform: translateX(17px);
 }
 
 

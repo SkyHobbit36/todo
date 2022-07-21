@@ -1,8 +1,8 @@
 import style from './App.module.css'
 import logo from '../assets/logo.png'
-import Add from './Add/Add';
-import TaskList from './TaskList/TaskList';
-import React from 'react';
+import Add from './Add/Add'
+import TaskList from './TaskList/TaskList'
+import React from 'react'
 
 const App = () => {
   const appRef = React.createRef()
@@ -26,7 +26,7 @@ const App = () => {
       </div>
     </div>
 
-  );
+  )
 }
 
-export default App;
+export default App

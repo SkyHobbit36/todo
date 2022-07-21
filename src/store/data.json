@@ -16,7 +16,15 @@
     "complited": "true"
   },
   {
-    "value": "Добавить SCSS",
+    "value": "Добавить кнопку звершения всех тасков",
+    "complited": "false"
+  },
+  {
+    "value": "Добавить кнопку удаления всех завершенных тасков",
+    "complited": "false"
+  },
+  {
+    "value": "Сохранение всех данных в locale storage",
     "complited": "false"
   }
 ]

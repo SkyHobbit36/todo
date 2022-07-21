@@ -1,4 +1,4 @@
-import {createRef} from 'react'
+import React, {createRef} from 'react'
 import { useDispatch } from 'react-redux'
 import { deleteTask, toggleComplite } from '../../../store/slices/todoSlice'
 import style from './Task.module.css'
@@ -15,7 +15,7 @@ const Task = (props) => {
       dispatch(deleteTask({
         id: props.id
       }))
-    }, 300);
+    }, 300)
   }
 
   const toggle = () =>{
@@ -25,7 +25,7 @@ const Task = (props) => {
       dispatch(toggleComplite({
         id: props.id
       }))
-    }, 250);
+    }, 250)
   }
 
   return (

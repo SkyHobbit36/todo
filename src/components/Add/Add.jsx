@@ -52,13 +52,10 @@ const Add = (props) => {
   useEffect(()=>{
 
     window.addEventListener('scroll', () => {
-      // const contHeight = props.appRef.current.offsetHeight
       if (window.pageYOffset >= props.appRef.current.offsetTop) {
         setFixedPosotion(true)
-        // addRef.current.style.transform = `translateY(${window.pageYOffset - props.appRef.current.offsetTop})`
       } else {
         setFixedPosotion(false)
-        // addRef.current.style.transform = `translateY(0)`
       }
     })
   },[props.appRef])
@@ -82,4 +79,4 @@ const Add = (props) => {
   )
 }
 
-export default Add;
+export default Add

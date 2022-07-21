@@ -23,7 +23,10 @@ export const todoSlice = createSlice({
 
     toggleComplite: (state, action) => {
       state.todos.map((el, i) => {
-        if (i !== action.payload.id) return el
+        if (i !== action.payload.id) {
+          return el
+        }
+
         el.complited = !el.complited
         return el
       })
