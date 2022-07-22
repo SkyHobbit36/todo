@@ -15,7 +15,7 @@ export const todoSlice = createSlice({
   },
   reducers: {
     setTodos: (state) => {
-      localStorage.setItem('todos', '')
+      // localStorage.setItem('todos', '')
       const todos = localStorage.getItem('todos')
 
       if (!todos) {
@@ -29,6 +29,17 @@ export const todoSlice = createSlice({
       state.todos.push({
         value: action.payload.value,
         completed: false,
+        id: state.todos.length
+      })
+      seveTodosToLoacaleStorage(state.todos)
+    },
+
+    updateTask: (state, action) => {
+      state.todos.forEach(el => {
+        if (el.id === action.payload.id) {
+          el.value = action.payload.value
+        }
+        return el
       })
       seveTodosToLoacaleStorage(state.todos)
     },
@@ -39,13 +50,10 @@ export const todoSlice = createSlice({
     },
 
     toggleComplite: (state, action) => {
-      state.todos.map((el, i) => {
-        if (i !== action.payload.id) {
-          return el
+      state.todos.forEach(el => {
+        if (el.id === action.payload.id) {
+          el.completed = !el.completed
         }
-
-        el.completed = !el.completed
-        return el
       })
       seveTodosToLoacaleStorage(state.todos)
     },
@@ -68,6 +76,6 @@ export const todoSlice = createSlice({
   }
 })
 
-export const { addTask, deleteTask, toggleComplite, setTodos, completeAllTasks, deleteComplited } = todoSlice.actions
+export const { addTask, updateTask, deleteTask, toggleComplite, setTodos, completeAllTasks, deleteComplited } = todoSlice.actions
 
 export default todoSlice.reducer

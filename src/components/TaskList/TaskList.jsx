@@ -14,12 +14,12 @@ const TaskList = () => {
     dispatch(setTodos())
   },[])
   
-  useSelector(state => state.todos.todos).forEach((el, i) => {
+  useSelector(state => state.todos.todos).forEach(el => {
     const task = <Task
       value={el.value}
       completed={el.completed}
-      id={i}
-      key={i}
+      id={el.id}
+      key={el.id}
     />
     if (el.completed) {
       todosCompleted.push(task)
